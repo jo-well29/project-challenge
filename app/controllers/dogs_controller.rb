@@ -12,6 +12,8 @@ class DogsController < ApplicationController
   # GET /dogs/1
   # GET /dogs/1.json
   def show
+    @shown_likes = Like.where(dog_id: @dog.id).count
+    @user_liked = Like.where(dog_id: @dog.id, user_id: current_user.id).any?
   end
 
   # GET /dogs/new
@@ -21,12 +23,16 @@ class DogsController < ApplicationController
 
   # GET /dogs/1/edit
   def edit
+    if @dog.owner != current_user
+      redirect_to @dog, notcie: "Error. Not your dog."
+    end
   end
 
   # POST /dogs
   # POST /dogs.json
   def create
     @dog = Dog.new(dog_params)
+    @dog.owner = current_user
 
     respond_to do |format|
       if @dog.save
@@ -75,6 +81,6 @@ class DogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dog_params
-      params.require(:dog).permit(:name, :description, :images)
+      params.require(:dog).permit(:name, :description, :images, :user_id)
     end
 end
