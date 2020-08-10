@@ -12,7 +12,7 @@ class DogsController < ApplicationController
   # GET /dogs/1
   # GET /dogs/1.json
   def show
-    @shown_likes = Like.where(dog_id: @dog.id).count
+    @show_likes = Like.where(dog_id: @dog.id).count
     @user_liked = Like.where(dog_id: @dog.id, user_id: current_user.id).any?
   end
 
@@ -77,6 +77,12 @@ class DogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dog
       @dog = Dog.find(params[:id])
+    end
+
+    def set_owner
+      if current_user && current_user.id == @dog.user.id
+        @owner = @dog.user
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
