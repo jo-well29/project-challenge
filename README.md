@@ -1,6 +1,11 @@
 # Welcome
 
-This repository contains starter code for a technical assessment. The challenges can be done at home before coming in to discuss with the Bark team or can be done as a pairing exercise at the Bark office. Either way, we don't expect you to put more than an hour or two into coding. We recommend forking the repository and getting it running before starting the challenge if you choose the pairing approach.
+I'm Jowel Rosario and this is my code of the assessment for BARK.
+
+## Summary and Issues
+
+I'd like to first mention that the biggest problems I encountered during this assessment were some typos, simple formating and debugging; Using Ruby on Rails for a fullstack application has been a interesting and learning experience for me. Utilizing RSpec and manipulating HTML was a first time experience and thoroughly researched to understand the concepts. The code crashed when Likes were trying to be implemented, but everything else before adding Likes worked well. Unfortunately, I could not fix the issues of the crash and debug the code after many hours of researching and revising the code. Overall, being able to practice and learn new concepts on Rails has been a great experience, unfortunately it crashed in the end, I felt as if I learned more through the process.
+
 
 # Set up
 
